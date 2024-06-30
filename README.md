@@ -1,4 +1,4 @@
-_hardik.ai_
+# _hardik.ai_
 
 ![banner](client/public/images/logo.png)
 
