@@ -74,6 +74,7 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(1rem);
+  z-index: 10;
 }
 
 .navbar-mobile-menu.open {
@@ -86,7 +87,19 @@
 .navbar-mobile-menu > .option {
   height: fit-content;
   transition: all 0.5s ease;
-  border: 1px solid black;
+}
+
+.navbar-mobile-menu > .option-1{
+    border-top: 1px solid var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
+}
+
+.navbar-mobile-menu > .option-2{
+    border-bottom: 1px solid var(--text-primary);
+}
+
+.navbar-mobile-menu > .option-3{
+    border-bottom: 1px solid var(--text-primary);
 }
 
 .navbar-mobile-menu > .option > p {

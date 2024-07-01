@@ -32,15 +32,15 @@ function Navbar() {
         </div>
       </div>
       <div className={`navbar-mobile-menu ${menuOpen ? "open" : ""}`}>
-        <div className="option">
+        <div className="option option-1">
           <p>[1]</p>
           <a href="/">Home</a>
         </div>
-        <div className="option">
+        <div className="option option-2">
           <p>[2]</p>
           <a href="/">About</a>
         </div>
-        <div className="option">
+        <div className="option option-3">
           <p>[3]</p>
           <a href="/">Projects</a>
         </div>
