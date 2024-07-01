@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Navbar.css";
+import "../styles/Navbar.scss";
 import vector from "../images/logo.svg";
 import text from "../images/logo_text.svg";
 
@@ -44,6 +44,7 @@ function Navbar() {
           <a href="/">Projects</a>
         </div>
       </div>
+
     </>
   );
 }
