@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "../style/Navbar.css";
+import "../styles/Navbar.css";
 import vector from "../images/logo.svg";
 import text from "../images/logo_text.svg";
-import hamburger from "../images/hamburger.svg";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

@@ -1,0 +1,173 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  width: 155px;
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.navbar-logo > .logo-text {
+  width: 100px;
+  height: auto;
+}
+
+.navbar-logo > .logo-vector {
+  width: 50px;
+  height: auto;
+}
+
+.navbar-links > a {
+  font-size: 1rem;
+  margin: 0 0 0 40px;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: 0.5s color ease;
+  font-family: "Fira Mono", monospace;
+}
+
+.navbar-links > a:hover {
+  color: var(--text-secondary);
+}
+
+.navbar-hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar-hamburger > .bar1,
+.navbar-hamburger > .bar2,
+.navbar-hamburger > .bar3 {
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-primary);
+  margin: 4px 0;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.navbar-hamburger.open .bar1 {
+  transform: translate(0, 6px) rotate(-45deg);
+}
+
+.navbar-hamburger.open .bar2 {
+  opacity: 0;
+}
+
+.navbar-hamburger.open .bar3 {
+  transform: translate(0, -6px) rotate(45deg);
+}
+
+.navbar-mobile-menu {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: white;
+  width: 100%;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  z-index: 10;
+}
+
+.navbar-mobile-menu.open {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(4rem);
+}
+
+.navbar-mobile-menu > .option {
+  height: fit-content;
+  transition: all 0.3s ease;
+}
+
+.navbar-mobile-menu > .option-1 {
+  border-top: 1px solid var(--text-primary);
+  border-bottom: 1px solid var(--text-primary);
+}
+
+.navbar-mobile-menu > .option-2 {
+  border-bottom: 1px solid var(--text-primary);
+}
+
+.navbar-mobile-menu > .option-3 {
+  border-bottom: 1px solid var(--text-primary);
+}
+
+.navbar-mobile-menu > .option > p {
+  font-size: 10px;
+  padding: 10px 0 0 10px;
+  font-family: "Fira Mono", monospace;
+}
+
+.navbar-mobile-menu > .option > a {
+  font-size: 4rem;
+  padding: 0 0 0 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  font-family: "Fjalla One", sans-serif;
+}
+
+.navbar-mobile-menu > .option:hover {
+  color: var(--text-tertiary);
+  a {
+    color: var(--text-tertiary);
+  }
+  background-color: var(--text-primary);
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (min-width: 551px) {
+  .navbar-mobile-menu {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .navbar-hamburger {
+    display: inline-block;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .navbar-mobile-menu {
+    display: flex;
+  }
+
+  .navbar-logo {
+    width: 105px;
+  }
+
+  .navbar-logo > .logo-text {
+    width: 70px;
+    height: auto;
+  }
+
+  .navbar-logo > .logo-vector {
+    width: 30px;
+    height: auto;
+  }
+
+  .navbar-links > a {
+    margin: 0 0 0 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .navbar {
+    margin-bottom: 3rem;
+  }
+}
