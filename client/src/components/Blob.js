@@ -4,7 +4,7 @@ import "../styles/Blob.scss";
 function Blob() {
   return (
     <>
-      <div class="square twitter">
+      <div className="square blob">
         <span></span>
         <span></span>
         <span></span>
