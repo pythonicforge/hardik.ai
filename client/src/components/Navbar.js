@@ -22,14 +22,16 @@ function Navbar() {
           <a href="/">About</a>
           <a href="/">Projects</a>
         </div>
-        <img
-          className="navbar-hamburger"
+        <div
+          className={`navbar-hamburger ${menuOpen ? "open" : ""}`}
           onClick={handleMenuToggle}
-          src={hamburger}
-          alt=""
-        />
+        >
+          <div className="bar1"></div>
+          <div className="bar2"></div>
+          <div className="bar3"></div>
+        </div>
       </div>
-      <div className={`navbar-mobile-menu ${menuOpen ? 'open' : ''}`}>
+      <div className={`navbar-mobile-menu ${menuOpen ? "open" : ""}`}>
         <div className="option">
           <p>[1]</p>
           <a href="/">Home</a>
