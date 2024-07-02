@@ -1,0 +1,33 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    font-family: "Fira Mono", monospace;
+  }
+  
+  .not-found-content {
+    text-align: center;
+  }
+  
+  .not-found-title {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .not-found-text {
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  
+  .not-found-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: 0.5s ease;
+  }
+  
+  .not-found-link:hover {
+    color: #313f9b;
+  }
+  

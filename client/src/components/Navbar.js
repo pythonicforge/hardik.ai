@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import Route and Routes from react-router-dom
 import "../styles/Navbar.scss";
 import vector from "../images/logo.svg";
 import text from "../images/logo_text.svg";

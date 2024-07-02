@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles/App.scss';
+import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import HomeBody from './components/HomeBody';
 import AboutBody from './components/AboutBody';
 import ProjectBody from './components/ProjectBody';
-import Footer from './components/Footer';
 import PageTransition from './components/PageTransition';
 import ProjectContainer from './components/ProjectContainer';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/" element={<HomeBody />} />
               <Route path="/about" element={<AboutBody />} />
               <Route path="/projects" element={<ProjectBody />} />
+              <Route path="*" element={<NotFound />} />
               <Route
                 path="/peripheral-killing-system"
                 element={
