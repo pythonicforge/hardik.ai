@@ -12,7 +12,7 @@ const PageTransition = ({ children }) => {
       gsap.to('.main-content', {
         scale: 1,
         opacity: 1,
-        duration: 1,
+        duration: 0.3,
         ease: 'power3.out',
       });
     };
