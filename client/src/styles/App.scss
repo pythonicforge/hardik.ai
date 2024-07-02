@@ -15,31 +15,51 @@
   box-sizing: border-box;
 }
 
+body{
+  height: fit-content;
+}
+
 .section-gap {
   margin: 2rem 5rem 0rem 5rem;
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   transition: all 0.5s ease;
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.slide-in{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--text-primary);
+  transform-origin: bottom;
+}
+
+.slide-out{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: var(--text-primary);
+  transform-origin: top;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.scss";
 import vector from "../images/logo.svg";
 import text from "../images/logo_text.svg";
@@ -13,13 +14,16 @@ function Navbar() {
   return (
     <>
       <div className="navbar section-gap">
+        <Link to="/">
         <div className="navbar-logo">
           <img className="logo-vector" src={vector} alt="" />
           <img className="logo-text" src={text} alt="" />
         </div>
+        </Link>
+        
         <div className="navbar-links">
-          <a href="/">About</a>
-          <a href="/">Projects</a>
+          <Link to="/about">About</Link>
+          <Link to="/projects">Projects</Link>
         </div>
         <div
           className={`navbar-hamburger ${menuOpen ? "open" : ""}`}
@@ -33,15 +37,15 @@ function Navbar() {
       <div className={`navbar-mobile-menu ${menuOpen ? "open" : ""}`}>
         <div className="option option-1">
           <p>[1]</p>
-          <a href="/">Home</a>
+          <Link to="/" onClick={() => setMenuOpen(!menuOpen)}>Home</Link>
         </div>
         <div className="option option-2">
           <p>[2]</p>
-          <a href="/">About</a>
+          <Link to="/about" onClick={() => setMenuOpen(!menuOpen)}>About</Link>
         </div>
         <div className="option option-3">
           <p>[3]</p>
-          <a href="/">Projects</a>
+          <Link to="/projects" onClick={() => setMenuOpen(!menuOpen)}>Projects</Link>
         </div>
       </div>
 

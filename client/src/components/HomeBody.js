@@ -3,7 +3,7 @@ import vKey from "../images/v-key.svg";
 import mouse from "../images/left-mouse.svg";
 import Blob from "./Blob";
 
-function Body() {
+function HomeBody() {
   return (
     <>
       <div className="body section-gap">
@@ -27,4 +27,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default HomeBody;

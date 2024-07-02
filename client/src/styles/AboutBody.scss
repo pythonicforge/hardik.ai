@@ -1,0 +1,153 @@
+.about-star-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.about-star-container > img{
+    width: 35px;
+    height: auto;
+}
+
+.about-content-container{
+    display: flex;
+    justify-content: center;
+}
+
+.about-content-container > .left-content-container{
+    border-top: 1px solid var(--text-primary);
+    border-left: 1px solid var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
+    width: 50%;
+}
+
+.file-type-container p{
+    font-family: "Fira Mono", monospace;
+    text-transform: uppercase;
+    padding: 5px 8px;
+    font-size: 13px;
+}
+
+.image-container{
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    text-align: right;
+}
+
+.image-container img{
+    width: 300px;
+    height: auto;
+}
+
+.image-content-container p{
+    font-family: "Fira Mono", monospace;
+    font-size: 13px;
+}
+
+.image-date-container{
+    text-align: right;
+    padding: 5px 5px;
+    font-family: "Fira Mono", monospace;
+    font-size: 15px;
+}
+
+.about-content-container > .right-content-container{
+    border: 1px solid black;
+    width: 50%;
+}
+
+.text-container{
+    padding: 2rem 1.5rem 0 1.5rem;
+    font-family: "Fira Mono", monospace;
+}
+
+.text-container > .one-tab{
+    padding-left: 2rem;
+}
+
+.text-container > .two-tabs{
+    padding-left: 4rem;
+}
+
+.text-container > .one-gap{
+    padding-top: 1.3rem;
+}
+
+.text-container > article.four-tabs{
+    padding-left: 8rem;
+}
+
+.text-container p span{
+    font-weight: 500;
+}
+
+.text-container p highlight{
+    color: var(--text-secondary);
+}
+
+@media screen and (max-width: 1024px) {
+    .text-container{
+        font-size: 11px;
+        padding: 1rem 1.5rem 1rem 1.5rem;
+    }
+
+    .image-container img{
+        width: 200px;
+        height: auto;
+    }
+
+    .image-date-container{
+        font-size: 10px;
+    }
+
+    .image-content-container p{
+        font-size: 8px;
+    }
+
+    .file-type-container p{
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 951px) {
+    .text-container{
+        font-size: 10px;
+    }
+
+    .image-container img{
+        width: 180px;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .about-content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-content-container{
+        border-right: 1px solid var(--text-primary);
+        margin-bottom: 2rem;
+    }
+
+    .text-container{
+        padding: 1rem 1.5rem;
+    }
+
+    .about-content-container > .left-content-container,
+    .about-content-container > .right-content-container{
+        width: 70%;
+    }
+
+}
+
+@media screen and (max-width: 549px) {
+    .about-content-container > .left-content-container,
+    .about-content-container > .right-content-container{
+        width: 100%;
+    }
+}
