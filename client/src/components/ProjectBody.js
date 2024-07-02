@@ -8,10 +8,30 @@ import melodi_cli from "../images/melodi-cli.svg";
 import Project from "./Project";
 
 const projects = [
-  { project_name: "Peripheral Killing System", image: pks, project_id: "00", project_link: "peripheral-killing-system" },
-  { project_name: "Melody.cli", image: melodi_cli, project_id: "01", project_link: "melody-cli" },
-  { project_name: "devcraft", image: devcraft, project_id: "02", project_link: "devcraft" },
-  { project_name: "hardik.ai", image: hardik_ai, project_id: "03", project_link: "hardik-ai" },
+  {
+    project_name: "Peripheral Killing System",
+    image: pks,
+    project_id: "00",
+    project_link: "peripheral-killing-system",
+  },
+  {
+    project_name: "Melody.cli",
+    image: melodi_cli,
+    project_id: "01",
+    project_link: "melody-cli",
+  },
+  {
+    project_name: "devcraft",
+    image: devcraft,
+    project_id: "02",
+    project_link: "devcraft",
+  },
+  {
+    project_name: "hardik.ai",
+    image: hardik_ai,
+    project_id: "03",
+    project_link: "hardik-ai",
+  },
 ];
 
 function ProjectBody() {
@@ -20,9 +40,15 @@ function ProjectBody() {
       <div className="project-star-container">
         <img src={stars} alt="Stars" />
       </div>
-      <div className="project-computer-container">
-        <img src={pixelated_computer} alt="Pixelated Computer" />
+
+      <div className="project-image-content">
+        <p className="project-filename">$ls project</p>
+        <div className="project-computer-container">
+          <img src={pixelated_computer} alt="Pixelated Computer" />
+        </div>
+        <p className="project-filesize">24.1kB</p>
       </div>
+
       <div className="project-grid-container">
         {projects.map((project) => (
           <Project
