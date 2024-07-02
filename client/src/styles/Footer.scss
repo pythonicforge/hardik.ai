@@ -1,31 +1,30 @@
 .footer-container {
   background-color: var(--bg-secondary);
   transition: all 0.5s ease;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
-.footer-content {
-  padding-top: 2rem;
-}
-
-.footer-container > .footer-content > .row-1 {
+.row-1 {
   display: flex;
   justify-content: space-between;
-  align-items: end;
-}
+  align-items: flex-end;
 
-.footer-container > .footer-content > .row-1 > p {
-  font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 40px;
-  font-weight: bold;
-}
+  p {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+  }
 
-.footer-container > .footer-content > .row-1 > img {
-  width: 110px;
-  height: 110px;
+  img {
+    width: 110px;
+    height: 110px;
+  }
 }
 
 .line {
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 0;
   background: var(--text-primary);
   height: 1px;
 }
@@ -34,61 +33,66 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 2rem;
 }
 
 .footer-links {
   display: flex;
   flex-direction: column;
+
+  a {
+    text-transform: uppercase;
+    font-family: "Fira Sans", monospace;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 12px;
+    transition: all 0.5s;
+
+    &:hover {
+      color: var(--text-secondary);
+    }
+  }
 }
 
-.footer-links > a {
-  text-transform: uppercase;
-  font-family: "Fira Sans", monospace;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-size: 12px;
-  transition: all 0.5s;
-}
+.footer-copyright {
+  p {
+    text-align: right;
+    font-family: "Fira Sans", monospace;
+    font-size: 12px;
 
-.footer-links > a:hover{
-    color: var(--text-secondary);
-}
-
-.footer-copyright p {
-  text-align: right;
-  font-family: "Fira Sans", monospace;
-  font-size: 12px;
-}
-
-.footer-copyright p span{
-    font-weight: bold;
+    span {
+      font-weight: bold;
+    }
+  }
 }
 
 @media screen and (max-width: 550px) {
-  .footer-container > .footer-content > .row-1 > p {
-    font-size: 30px;
+  .row-1 {
+    p {
+      font-size: 30px;
+    }
+
+    img {
+      height: 70px;
+      width: 70px;
+    }
   }
 
-  .footer-container > .footer-content > .row-1 > img {
-    height: 70px;
-    width: 70px;
-  }
-
-  .footer-links > a,
-  .footer-copyright > p {
+  .footer-links a,
+  .footer-copyright p {
     font-size: 10px;
   }
 }
 
 @media screen and (max-width: 470px) {
-  .footer-container > .footer-content > .row-1 > p {
-    font-size: 30px;
-  }
+  .row-1 {
+    p {
+      font-size: 30px;
+    }
 
-  .footer-container > .footer-content > .row-1 > img {
-    height: 70px;
-    width: 70px;
+    img {
+      height: 70px;
+      width: 70px;
+    }
   }
 
   .footer-copyright {

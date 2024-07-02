@@ -11,44 +11,45 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <>
       <div className="navbar section-gap">
-        <Link to="/">
-        <div className="navbar-logo">
-          <img className="logo-vector" src={vector} alt="" />
-          <img className="logo-text" src={text} alt="" />
-        </div>
+        <Link to="/" onClick={closeMenu}>
+          <div className="navbar-logo">
+            <img className="logo-vector" src={vector} alt="Logo Vector" />
+            <img className="logo-text" src={text} alt="Logo Text" />
+          </div>
         </Link>
         
         <div className="navbar-links">
           <Link to="/about">About</Link>
           <Link to="/projects">Projects</Link>
         </div>
-        <div
-          className={`navbar-hamburger ${menuOpen ? "open" : ""}`}
-          onClick={handleMenuToggle}
-        >
-          <div className="bar1"></div>
-          <div className="bar2"></div>
-          <div className="bar3"></div>
+        
+        <div className={`navbar-hamburger ${menuOpen ? "open" : ""}`} onClick={handleMenuToggle}>
+          <div className="bar"></div>
+          <div className="bar"></div>
+          <div className="bar"></div>
         </div>
       </div>
+      
       <div className={`navbar-mobile-menu ${menuOpen ? "open" : ""}`}>
-        <div className="option option-1">
-          <p>[1]</p>
-          <Link to="/" onClick={() => setMenuOpen(!menuOpen)}>Home</Link>
-        </div>
-        <div className="option option-2">
-          <p>[2]</p>
-          <Link to="/about" onClick={() => setMenuOpen(!menuOpen)}>About</Link>
-        </div>
-        <div className="option option-3">
-          <p>[3]</p>
-          <Link to="/projects" onClick={() => setMenuOpen(!menuOpen)}>Projects</Link>
-        </div>
+        {['Home', 'About', 'Projects'].map((text, index) => (
+          <div key={index} className={`option option-${index + 1}`}>
+            <p>[{index + 1}]</p>
+            <Link
+              to={text === 'Home' ? '/' : `/${text.toLowerCase()}`}
+              onClick={closeMenu}
+            >
+              {text}
+            </Link>
+          </div>
+        ))}
       </div>
-
     </>
   );
 }

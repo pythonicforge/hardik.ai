@@ -131,7 +131,7 @@
 
     .left-content-container{
         border-right: 1px solid var(--text-primary);
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
     }
 
     .text-container{
@@ -149,5 +149,9 @@
     .about-content-container > .left-content-container,
     .about-content-container > .right-content-container{
         width: 100%;
+    }
+
+    .about-star-container{
+        margin-bottom: 1rem;
     }
 }

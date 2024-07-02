@@ -1,83 +1,79 @@
-.inter-container-space {
-  margin-bottom: 4.5rem;
+.body {
+
+  .inter-container-space {
+    margin-bottom: 4.5rem;
+  }
+
+  .body-file-container {
+    display: flex;
+    justify-content: flex-end;
+
+    p {
+      font-family: "Fira Mono", monospace;
+      font-size: 12px;
+    }
+  }
+
+  .body-blob-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  .body-stats-container {
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+
+    p {
+      font-family: "Fira Mono", monospace;
+      font-size: 12px;
+    }
+  }
+
+  .body-instructions-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      font-family: "Fira Mono", monospace;
+      font-size: 13px;
+      &.left-gap {
+        padding-left: 6px;
+      }
+      &.right-gap {
+        padding-right: 6px;
+      }
+    }
+
+    img {
+      width: 24px; // Default size, can be adjusted as needed
+      height: 24px;
+    }
+  }
 }
 
-.body-blob-container {
-  display: flex;
-  justify-content: center;
-}
-
-.body-file-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.body-file-container > p {
-  font-family: "Fira Mono", monospace;
-  font-size: 12px;
-}
-
-.body-stats-container {
-  text-transform: uppercase;
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2.5rem;
-}
-
-.body-stats-container > p {
-  font-family: "Fira Mono", monospace;
-  font-size: 12px;
-}
-
-.body-instructions-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.body-instructions-container > p {
-  font-family: "Fira Mono", monospace;
-  font-size: 16px;
-}
-
-.body-instructions-container > p.left-gap {
-  padding-left: 8px;
-}
-
-.body-instructions-container > p.right-gap {
-  padding-right: 8px;
-}
-
-@media screen and (max-width: 768px) {
-}
 @media screen and (max-width: 425px) {
-  .body-file-container > p {
+  .body-file-container p,
+  .body-stats-container p {
     font-size: 8px;
   }
 
-  .body-stats-container > p {
+  .body-instructions-container p {
     font-size: 8px;
+
+    &.left-gap {
+      padding-left: 6px;
+    }
+
+    &.right-gap {
+      padding-right: 6px;
+    }
   }
 
-  .body-instructions-container > p {
-    font-family: "Fira Mono", monospace;
-    font-size: 12px;
-  }
-
-  .body-instructions-container > p.left-gap {
-    padding-left: 6px;
-  }
-
-  .body-instructions-container > p.right-gap {
-    padding-right: 6px;
-  }
-
-  .body-instructions-container > img {
+  .body-instructions-container img {
     width: 20px;
     height: 20px;
   }
-}
-@media screen and (max-width: 375px) {
-}
-@media screen and (max-width: 320px) {
 }

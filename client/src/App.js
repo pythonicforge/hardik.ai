@@ -1,23 +1,25 @@
-import "./styles/App.scss";
-import Navbar from "./components/Navbar.js";
-import HomeBody from "./components/HomeBody.js";
-import AboutBody from "./components/AboutBody.js";
-import Footer from "./components/Footer.js";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "./styles/App.scss";
+import Navbar from "./components/Navbar";
+import HomeBody from "./components/HomeBody";
+import AboutBody from "./components/AboutBody";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-        <Router>
-          <Navbar />
+    <Router>
+      <div className="app-container">
+        <Navbar />
+        <div className="main-content">
           <Routes>
             <Route path="/" element={<HomeBody />} />
             <Route path="/about" element={<AboutBody />} />
-            <Route path="/projects" />
           </Routes>
-          <Footer />
-        </Router>
-    </>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
