@@ -75,15 +75,15 @@
     padding-top: 1.3rem;
 }
 
-.text-container > article.four-tabs{
-    padding-left: 8rem;
+.text-container > p > span.description{
+    font-weight: normal;
 }
 
 .text-container p span{
     font-weight: 500;
 }
 
-.text-container p highlight{
+.text-container p .highlight{
     color: var(--text-secondary);
 }
 

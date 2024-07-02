@@ -38,45 +38,48 @@ function AboutBody() {
               <span>def description</span>(self):
             </p>
             <p className="two-tabs">
-              <highlight>return</highlight> """
-              <article className="four-tabs">hardik codes software, usually
+              <span className="highlight">return</span> """
+              <span className="description">hardik codes software, usually
                  sequentially writing them to 
                  console. He also designs and 
                  builds things, some of which 
-                 include apps and websites.</article>
-                 <article className="four-tabs one-gap">hardik codes software, usually
-                 sequentially writing them to 
-                 console. He also designs and 
-                 builds things, some of which 
-                 include apps and websites.</article>
-            <article className="four-tabs">
+                 include apps and websites.</span>
+                 <br/>
+                 <br/>
+                 <span className="description one-gap">hardik pairs quite nicely with
+                 other things that include:
+                 [insert current reading book],
+                 programming languages, vs-code,
+                 coffee, cricket, travel, gaming
+                 and infitinum...</span>
+            <span className="description">
             """
-            </article>
+            </span>
             </p>
             <p className="one-tab one-gap">
               <span>def title</span>(self):
             </p>
             <p className="two-tabs">
-              <highlight>return</highlight> ”python and web developer”
+              <span className="highlight">return</span> ”python and web developer”
             </p>
             <p className="one-tab one-gap">
               <span>def skills</span>(self):
             </p>
             <p className="two-tabs">
-              <highlight>return</highlight> [“python”, “html”, “css”, “java”,
+              <span className="highlight">return</span> [“python”, “html”, “css”, “java”,
               “javascript”, "reactjs", "flask", "firebase"]
             </p>
             <p className="one-tab one-gap">
               <span>def tools</span>(self):
             </p>
             <p className="two-tabs">
-              <highlight>return</highlight> [“vscode”, “linux”, “git”, "figma"]
+              <span className="highlight">return</span> [“vscode”, “linux”, “git”, "figma"]
             </p>
             <p className="one-tab one-gap">
               <span>def usage</span>(self):
             </p>
             <p className="two-tabs">
-              <highlight>return</highlight> [“ai-ml”, “robotics”,
+              <span className="highlight">return</span> [“ai-ml”, “robotics”,
               “algo-trading”]
             </p>
           </div>

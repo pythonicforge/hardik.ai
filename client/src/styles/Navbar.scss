@@ -29,7 +29,8 @@
       transition: color 0.5s ease;
       font-family: "Fira Mono", monospace;
 
-      &:hover {
+      &:hover,
+      &.active {
         color: var(--text-secondary);
       }
     }
@@ -102,14 +103,14 @@
       height: fit-content;
       transition: all 0.3s ease;
 
-      &:hover {
+      &:hover,
+      &.active {
         color: var(--text-tertiary);
+        background-color: var(--text-primary);
 
         a {
           color: var(--text-tertiary);
         }
-
-        background-color: var(--text-primary);
       }
 
       &-1, &-2, &-3 {

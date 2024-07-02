@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/Navbar.scss";
 import vector from "../images/logo.svg";
 import text from "../images/logo_text.svg";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -14,6 +15,8 @@ function Navbar() {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <>
@@ -26,8 +29,8 @@ function Navbar() {
         </Link>
         
         <div className="navbar-links">
-          <Link to="/about">About</Link>
-          <Link to="/projects">Projects</Link>
+          <Link to="/about" className={isActive("/about") ? "active" : ""}>About</Link>
+          <Link to="/projects" className={isActive("/projects") ? "active" : ""}>Projects</Link>
         </div>
         
         <div className={`navbar-hamburger ${menuOpen ? "open" : ""}`} onClick={handleMenuToggle}>
@@ -39,7 +42,10 @@ function Navbar() {
       
       <div className={`navbar-mobile-menu ${menuOpen ? "open" : ""}`}>
         {['Home', 'About', 'Projects'].map((text, index) => (
-          <div key={index} className={`option option-${index + 1}`}>
+          <div
+            key={index}
+            className={`option option-${index + 1} ${isActive(text === 'Home' ? '/' : `/${text.toLowerCase()}`) ? "active" : ""}`}
+          >
             <p>[{index + 1}]</p>
             <Link
               to={text === 'Home' ? '/' : `/${text.toLowerCase()}`}
