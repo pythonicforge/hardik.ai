@@ -7,15 +7,15 @@ const PageTransition = ({ children }) => {
 
   useEffect(() => {
     const handlePageTransition = () => {
-      gsap.set('.main-content', { scale: 0.8, opacity: 0 });
+      gsap.set('.main-content', { opacity: 0 });
 
       gsap.to('.main-content', {
-        scale: 1,
         opacity: 1,
-        duration: 0.3,
+        duration: 1,
         ease: 'power3.out',
       });
     };
+
     handlePageTransition();
   }, [location.pathname]);
 

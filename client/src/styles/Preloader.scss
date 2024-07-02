@@ -1,0 +1,75 @@
+.wrapper {
+    display: flex;
+    font-family: "Fira Code", monospace;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+  
+    .container {
+      text-align: center;
+    }
+  
+    .donut-container {
+      animation: donutFadeIn 0.5s ease-in-out forwards;
+      font-size: 14px;
+      white-space: pre;
+  
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+      }
+    }
+  
+    .progress-bar {
+      display: inline-block;
+      text-align: left;
+      font-size: 15px;
+      font-family: monospace;
+      margin-top: 20px;
+      opacity: 0;
+      animation: progressBarFadeIn 1s ease-in-out forwards;
+      animation-delay: 1s;
+    }
+  
+    #progressbar {
+      display: inline-block;
+      white-space: pre-wrap;
+    }
+  
+    @keyframes donutFadeIn {
+      0% {
+        opacity: 0;
+      }
+  
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    @keyframes progressBarFadeIn {
+      0% {
+        opacity: 0;
+      }
+  
+      100% {
+        opacity: 1;
+      }
+    }
+  
+    .fade-out {
+      animation: fadeOut 0.5s ease-in-out forwards;
+    }
+  
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+  
+      100% {
+        opacity: 0;
+      }
+    }
+  }
+  
