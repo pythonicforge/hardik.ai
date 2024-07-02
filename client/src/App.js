@@ -4,6 +4,7 @@ import "./styles/App.scss";
 import Navbar from "./components/Navbar";
 import HomeBody from "./components/HomeBody";
 import AboutBody from "./components/AboutBody";
+import ProjectBody from "./components/ProjectBody";
 import Footer from "./components/Footer";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomeBody />} />
             <Route path="/about" element={<AboutBody />} />
+            <Route path="/projects" element={<ProjectBody />} />
           </Routes>
         </div>
         <Footer />

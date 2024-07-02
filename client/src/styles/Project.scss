@@ -1,0 +1,55 @@
+a{
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.project-grid-item {
+  border: 1px solid black;
+  cursor: pointer;
+
+  .project-name {
+    padding: 25px 35px;
+    font-family: "Fira Mono", monospace;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .project-banner-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 300px;
+      height: auto;
+    }
+  }
+
+  .project-id {
+    text-align: right;
+    padding: 25px 35px;
+    font-family: "Fira Mono", monospace;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+    .project-grid-item {
+      .project-banner-image {
+        img {
+          width: 200px;
+          height: auto;
+        }
+      }
+
+      .project-name,
+      .project-id {
+        padding: 15px 25px;
+        font-size: 15px;
+      }
+    }
+  }
+
