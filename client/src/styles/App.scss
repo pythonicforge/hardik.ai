@@ -16,10 +16,15 @@
   outline: none;
 }
 
+*:hover{
+  cursor: url('../images/cursor.png'), auto;
+}
+
 body {
   height: fit-content;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
+  cursor: url('../images/cursor.png'), auto;
 }
 
 .section-gap {
