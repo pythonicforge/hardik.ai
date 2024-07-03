@@ -46,17 +46,95 @@ function HomeBody() {
   }, [handleKeyPress]);
 
   useEffect(() => {
+    const speakText = () => {
+      try {
+        const text = transcript.trim();
+        if (text) {
+          const voices = speechSynthesis.getVoices();
+          const utterance = new SpeechSynthesisUtterance(text);
+
+          if (voices.length > 0) {
+            const selectedVoice = voices.find(
+              (voice) =>
+                voice.name ===
+                "Microsoft Emma Online (Natural) - English (United States)"
+            );
+            const fallbackVoice = voices.find(
+              (voice) =>
+                voice.name === "Microsoft Mark - English (United States)"
+            );
+            const defaultVoice = voices[0];
+
+            if (selectedVoice) {
+              utterance.voice = selectedVoice;
+            } else if (fallbackVoice) {
+              utterance.voice = fallbackVoice;
+            } else {
+              utterance.voice = defaultVoice;
+            }
+
+            console.log(
+              `Voice set to: ${utterance.voice.name} (${utterance.voice.lang})`
+            );
+
+            utterance.onstart = function () {
+              console.log("Speech started");
+            };
+
+            utterance.onend = function () {
+              console.log("Speech ended");
+            };
+
+            window.speechSynthesis.speak(utterance);
+          } else {
+            console.log(
+              "No voices available yet. Waiting for voiceschanged event."
+            );
+            speechSynthesis.onvoiceschanged = function () {
+              speechSynthesis.onvoiceschanged = null;
+              speakText();
+            };
+          }
+        } else {
+          console.log("No transcript available to speak.");
+        }
+      } catch (error) {
+        console.log("Program ran into an error! Please try again later");
+      }
+    };
+
     recognition.onspeechend = () => {
       setIsListening(false);
     };
 
     recognition.onend = () => {
       setIsListening(false);
+      speakText();
     };
 
     recognition.onerror = (event) => {
       setIsListening(false);
-      setPopupMessage(`Error: ${event.error}`);
+      let error;
+      switch (event.error) {
+        case "network":
+          error =
+            "Network error. Please check your internet connection and try again.";
+          break;
+        case "no-speech":
+          error = "No speech detected. Please try again.";
+          break;
+        case "audio-capture":
+          error =
+            "No microphone was found. Ensure that a microphone is installed and that microphone settings are configured correctly.";
+          break;
+        case "not-allowed":
+          error =
+            "Permission to use microphone is blocked. To change, go to chrome://settings/content/microphone";
+          break;
+        default:
+          error = "An unknown error occurred: " + event.error;
+      }
+      setPopupMessage(`Error: ${error}`);
     };
 
     recognition.onresult = (event) => {
@@ -74,7 +152,7 @@ function HomeBody() {
       recognition.onerror = null;
       recognition.onresult = null;
     };
-  }, []);
+  }, [transcript]);
 
   return (
     <div className="body section-gap">

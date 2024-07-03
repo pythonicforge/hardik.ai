@@ -90,7 +90,6 @@ const Preloader = ({ onLoadComplete }) => {
           percentDecimalPlaces: 2,
           onComplete: function () {
             setTimeout(() => {
-              document.getElementById("preloader").classList.add("fade-out");
               setTimeout(() => {
                 onLoadComplete();
               }, 700);
