@@ -1,6 +1,6 @@
-a{
-    text-decoration: none;
-    color: var(--text-primary);
+a {
+  text-decoration: none;
+  color: var(--text-primary);
 }
 
 .project-grid-item {
@@ -37,19 +37,18 @@ a{
 }
 
 @media (max-width: 500px) {
-    .project-grid-item {
-      .project-banner-image {
-        img {
-          width: 200px;
-          height: auto;
-        }
-      }
-
-      .project-name,
-      .project-id {
-        padding: 15px 25px;
-        font-size: 15px;
+  .project-grid-item {
+    .project-banner-image {
+      img {
+        width: 200px;
+        height: auto;
       }
     }
-  }
 
+    .project-name,
+    .project-id {
+      padding: 15px 25px;
+      font-size: 15px;
+    }
+  }
+}

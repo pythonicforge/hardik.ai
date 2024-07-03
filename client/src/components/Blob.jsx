@@ -8,7 +8,7 @@ function Blob() {
         <span></span>
         <span></span>
         <span></span>
-    </div>
+      </div>
     </>
   );
 }

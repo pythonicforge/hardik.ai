@@ -10,17 +10,18 @@
   }
 }
 
-.project-image-content{
+.project-image-content {
   border: 1px solid var(--text-primary);
   margin-bottom: 2rem;
 
-  .project-filename, .project-filesize{
+  .project-filename,
+  .project-filesize {
     padding: 10px 15px;
     font-family: "Fira Mono", monospace;
     font-size: 12px;
   }
 
-  .project-filesize{
+  .project-filesize {
     text-align: right;
   }
 }

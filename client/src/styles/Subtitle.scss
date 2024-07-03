@@ -1,0 +1,33 @@
+.subtitle-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 14px;
+  opacity: 0;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: opacity 0.5s ease-in-out, top 0.5s ease-in-out;
+  font-family: "Fira Mono", monospace;
+  pointer-events: none;
+}
+
+.subtitle-container.visible {
+  opacity: 1;
+  top: calc(50% - 30px);
+}
+
+@media screen and (max-width: 375px) {
+  .subtitle-container {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .subtitle-container.visible {
+    opacity: 1;
+    top: calc(50% - 50px);
+  }
+}

@@ -59,7 +59,12 @@ function App() {
                         title="Melody.CLI"
                         description="Melody CLI is a versatile command-line music player that integrates YouTube Music into your terminal, perfect for developers and music enthusiasts alike. With Melody CLI, you can search for songs on YouTube Music, download audio, and play it directly from the terminal. Leveraging yt-dlp for downloading and converting videos, ytmusicapi for interfacing with YouTube Music, and pygame for audio playback, it offers a seamless experience. The intuitive command-line interface simplifies navigation and playback control, making it accessible even to beginners. As an open-source project, Melody CLI invites community contributions to enhance its features. It provides a distraction-free, immersive music experience, ideal for developers or terminal aficionados. Key features include searching songs by title or artist, downloading and converting audio to MP3, playing music, and intuitive playback controls like pause, resume, and stop."
                         link="https://github.com/pythonicforge/Melody.CLI"
-                        skills={["Python", "YtMusicAPI", "Python args", "ytdlp"]}
+                        skills={[
+                          "Python",
+                          "YtMusicAPI",
+                          "Python args",
+                          "ytdlp",
+                        ]}
                       />
                     }
                   />
