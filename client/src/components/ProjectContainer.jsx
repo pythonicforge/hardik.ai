@@ -1,4 +1,3 @@
-import "./ScrollToTop";
 import ScrollToTop from "./ScrollToTop";
 import { Link } from "react-router-dom";
 import "../styles/ProjectContainer.scss";
@@ -32,7 +31,7 @@ function ProjectContainer({ title, description, link, skills }) {
               </video>
               <p className="video-size">2.3mB</p>
             </div>
-            <Link to={link} className="link-container">
+            <Link to={link} className="link-container" target="_blank">
               <img src={github} alt="GitHub" className="github-icon" />
               <p>Visit GitHub</p>
             </Link>
