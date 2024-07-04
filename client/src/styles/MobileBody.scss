@@ -1,0 +1,38 @@
+.mobileBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .mobileBody-activate-button {
+    background-color: transparent;
+    border: 2px solid var(--text-primary);
+    color: var(--text-primary);
+    width: 12rem;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.3s all ease-in;
+  }
+
+  .mobileBody-activate-button p {
+    font-family: "Fira Mono", monospace;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 500;
+  }
+
+  .mobileBody-activate-button:hover {
+    background-color: var(--text-primary);
+    color: white;
+    cursor: url("../images/pointed.png"), auto;
+  }
+
+  .mobileBody-instructions{
+    margin-top: 3rem;
+    text-align: center;
+    font-family: "Fira Sans", monospace;
+  }
+}

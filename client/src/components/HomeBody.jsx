@@ -111,7 +111,9 @@ function HomeBody() {
     const checkWelcomeMessage = () => {
       if (!sessionStorage.getItem("welcomeMessageSpoken")) {
         sessionStorage.setItem("welcomeMessageSpoken", "true");
-        speakText("Welcome to Hardik's portfolio! Feel free to ask any questions about Hardik.");
+        speakText(
+          "Welcome to Hardik's portfolio! Feel free to ask any questions about Hardik."
+        );
       }
     };
 
