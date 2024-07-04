@@ -8,7 +8,6 @@
     display: flex;
     cursor: pointer;
     justify-content: space-between;
-    cursor: url("../images/pointed.png"), auto;
 
     .logo-text {
       width: 100px;
@@ -33,14 +32,12 @@
       &:hover,
       &.active {
         color: var(--text-secondary);
-        cursor: url("../images/pointed.png"), auto;
       }
     }
   }
 
   &-hamburger {
     display: none;
-    cursor: url("../images/pointed.png"), auto;
 
     .bar {
       width: 20px;
@@ -109,11 +106,9 @@
       &.active {
         color: var(--text-tertiary);
         background-color: var(--text-primary);
-        cursor: url("../images/pointed.png"), auto;
 
         a {
           color: var(--text-tertiary);
-          cursor: url("../images/pointed.png"), auto;
         }
       }
 
