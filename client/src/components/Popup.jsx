@@ -35,8 +35,8 @@ function Popup({ type, popupText }) {
   return (
     <div className={`popup-container ${showPopup ? popupClass : ""}`}>
       <span>
-        {type === "error" && "❌ "}
-        {type === "warning" && "⚠️ "}
+        {type === "error" && "Error: "}
+        {type === "warning" && "Warning: "}
         {popupText}
       </span>
     </div>
