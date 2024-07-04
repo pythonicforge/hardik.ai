@@ -1,35 +1,21 @@
 import React, { useState, useEffect } from "react";
 import "../styles/Subtitle.scss";
 
-function Subtitle({ subtitle }) {
+function Subtitle({ subtitle, isSpeaking }) {
   const [showPopup, setShowPopup] = useState(false);
   const [popupClass, setPopupClass] = useState("");
 
   useEffect(() => {
-    let showTimeout;
-    let hideTimeout;
-
-    if (subtitle) {
-      showTimeout = setTimeout(() => {
-        setShowPopup(true);
-        setPopupClass("visible");
-
-        hideTimeout = setTimeout(() => {
-          setPopupClass("");
-          setTimeout(() => {
-            setShowPopup(false);
-          }, 500);
-        }, 4000);
-      }, 500);
-
-      return () => {
-        clearTimeout(showTimeout);
-        clearTimeout(hideTimeout);
+    if (subtitle && isSpeaking) {
+      setShowPopup(true);
+      setPopupClass("visible");
+    } else {
+      setPopupClass("");
+      setTimeout(() => {
         setShowPopup(false);
-        setPopupClass("");
-      };
+      }, 500);
     }
-  }, [subtitle]);
+  }, [subtitle, isSpeaking]);
 
   return (
     <div className={`subtitle-container ${popupClass}`}>

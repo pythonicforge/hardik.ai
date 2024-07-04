@@ -13,7 +13,9 @@ const recognition = new SpeechRecognition();
 function HomeBody() {
   const [isListening, setIsListening] = useState(false);
   const [popupMessage, setPopupMessage] = useState(null);
+  const [assistantText, setAssistantText] = useState("");
   const [transcript, setTranscript] = useState("");
+  const [isSpeaking, setIsSpeaking] = useState(false);
 
   const toggleListening = useCallback(() => {
     try {
@@ -46,9 +48,8 @@ function HomeBody() {
   }, [handleKeyPress]);
 
   useEffect(() => {
-    const speakText = () => {
+    const speakText = (text) => {
       try {
-        const text = transcript.trim();
         if (text) {
           const voices = speechSynthesis.getVoices();
           const utterance = new SpeechSynthesisUtterance(text);
@@ -73,35 +74,50 @@ function HomeBody() {
               utterance.voice = defaultVoice;
             }
 
-            console.log(
-              `Voice set to: ${utterance.voice.name} (${utterance.voice.lang})`
-            );
-
             utterance.onstart = function () {
               console.log("Speech started");
+              setIsSpeaking(true);
+              setAssistantText(text);
             };
 
             utterance.onend = function () {
               console.log("Speech ended");
+              setIsSpeaking(false);
             };
 
             window.speechSynthesis.speak(utterance);
           } else {
-            console.log(
-              "No voices available yet. Waiting for voiceschanged event."
-            );
+            <Popup
+              type="warning"
+              popupText="No voices available yet. Waiting for voiceschanged event."
+            />;
             speechSynthesis.onvoiceschanged = function () {
               speechSynthesis.onvoiceschanged = null;
-              speakText();
+              speakText(text);
             };
           }
         } else {
-          console.log("No transcript available to speak.");
+          <Popup
+            type="warning"
+            popupText="No transcript available to speak."
+          />;
         }
       } catch (error) {
-        console.log("Program ran into an error! Please try again later");
+        <Popup
+          type="error"
+          popupText="Program ran into an error! Please try again later"
+        />;
       }
     };
+
+    const checkWelcomeMessage = () => {
+      if (!sessionStorage.getItem("welcomeMessageSpoken")) {
+        sessionStorage.setItem("welcomeMessageSpoken", "true");
+        speakText("Welcome to Hardik's portfolio! I am Echo, feel free to ask any questions about Hardik.");
+      }
+    };
+
+    checkWelcomeMessage();
 
     recognition.onspeechend = () => {
       setIsListening(false);
@@ -109,7 +125,6 @@ function HomeBody() {
 
     recognition.onend = () => {
       setIsListening(false);
-      speakText();
     };
 
     recognition.onerror = (event) => {
@@ -152,7 +167,11 @@ function HomeBody() {
       recognition.onerror = null;
       recognition.onresult = null;
     };
-  }, [transcript]);
+  }, []);
+
+  useEffect(() => {
+    localStorage.removeItem("welcomeMessageSpoken");
+  }, []);
 
   return (
     <div className="body section-gap">
@@ -162,7 +181,7 @@ function HomeBody() {
       </div>
       <div className="body-blob-container inter-container-space">
         <Blob />
-        <Subtitle subtitle={transcript} />
+        <Subtitle subtitle={assistantText} isSpeaking={isSpeaking} />
       </div>
       <div className="body-stats-container">
         <p>[Currently in Kolkata]</p>
