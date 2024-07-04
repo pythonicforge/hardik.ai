@@ -3,7 +3,7 @@ import '../styles/MobileBody.scss';
 
 function MobileBody({ onActivate }) {
   const handleClick = () => {
-    onActivate(); // Call the onActivate function passed as a prop
+    onActivate();
   };
 
   return (

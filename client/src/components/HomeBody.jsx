@@ -16,6 +16,7 @@ function HomeBody() {
   const [assistantText, setAssistantText] = useState("");
   const [transcript, setTranscript] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [voices, setVoices] = useState([]);
 
   const toggleListening = useCallback(() => {
     try {
@@ -48,77 +49,30 @@ function HomeBody() {
   }, [handleKeyPress]);
 
   useEffect(() => {
-    const speakText = (text) => {
-      try {
-        if (text) {
-          const voices = speechSynthesis.getVoices();
-          const utterance = new SpeechSynthesisUtterance(text);
-
-          if (voices.length > 0) {
-            const selectedVoice = voices.find(
-              (voice) =>
-                voice.name ===
-                "Microsoft Emma Online (Natural) - English (United States)"
-            );
-            const fallbackVoice = voices.find(
-              (voice) =>
-                voice.name === "Microsoft Mark - English (United States)"
-            );
-            const defaultVoice = voices[0];
-
-            if (selectedVoice) {
-              utterance.voice = selectedVoice;
-            } else if (fallbackVoice) {
-              utterance.voice = fallbackVoice;
-            } else {
-              utterance.voice = defaultVoice;
-            }
-
-            utterance.onstart = function () {
-              setIsSpeaking(true);
-              setAssistantText(text);
-            };
-
-            utterance.onend = function () {
-              setIsSpeaking(false);
-            };
-
-            window.speechSynthesis.speak(utterance);
-          } else {
-            <Popup
-              type="warning"
-              popupText="No voices available yet. Waiting for voiceschanged event."
-            />;
-            speechSynthesis.onvoiceschanged = function () {
-              speechSynthesis.onvoiceschanged = null;
-              speakText(text);
-            };
-          }
-        } else {
-          <Popup
-            type="warning"
-            popupText="No transcript available to speak."
-          />;
-        }
-      } catch (error) {
-        <Popup
-          type="error"
-          popupText="Program ran into an error! Please try again later"
-        />;
+    const loadVoices = () => {
+      const synthVoices = speechSynthesis.getVoices();
+      if (synthVoices.length !== 0) {
+        setVoices(synthVoices);
+      } else {
+        speechSynthesis.onvoiceschanged = () => {
+          setVoices(speechSynthesis.getVoices());
+        };
       }
     };
 
-    const checkWelcomeMessage = () => {
-      if (!sessionStorage.getItem("welcomeMessageSpoken")) {
-        sessionStorage.setItem("welcomeMessageSpoken", "true");
-        speakText(
-          "Welcome to Hardik's portfolio! Feel free to ask any questions about Hardik."
-        );
-      }
-    };
+    loadVoices();
+  }, []);
 
-    checkWelcomeMessage();
+  useEffect(() => {
+    if (voices.length > 0 && !sessionStorage.getItem("welcomeMessageSpoken")) {
+      sessionStorage.setItem("welcomeMessageSpoken", "true");
+      speakText(
+        "Welcome to Hardik's portfolio! Feel free to ask any questions about Hardik."
+      );
+    }
+  }, [voices]);
 
+  useEffect(() => {
     recognition.onspeechend = () => {
       setIsListening(false);
     };
@@ -169,6 +123,40 @@ function HomeBody() {
       recognition.onresult = null;
     };
   }, [transcript]);
+
+  const speakText = useCallback((text) => {
+    if (!text) {
+      setPopupMessage("No transcript available to speak.");
+      return;
+    }
+    if (voices.length === 0) {
+      setPopupMessage("No voices available.");
+      return;
+    }
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    const selectedVoice = voices.find(
+      (voice) =>
+        voice.name ===
+        "Microsoft Emma Online (Natural) - English (United States)"
+    );
+    const fallbackVoice = voices.find(
+      (voice) => voice.name === "Microsoft Mark - English (United States)"
+    );
+
+    utterance.voice = selectedVoice || fallbackVoice || voices[0];
+
+    utterance.onstart = () => {
+      setIsSpeaking(true);
+      setAssistantText(text);
+    };
+
+    utterance.onend = () => {
+      setIsSpeaking(false);
+    };
+
+    window.speechSynthesis.speak(utterance);
+  }, [voices]);
 
   return (
     <div className="body section-gap">
