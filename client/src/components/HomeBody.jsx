@@ -75,13 +75,11 @@ function HomeBody() {
             }
 
             utterance.onstart = function () {
-              console.log("Speech started");
               setIsSpeaking(true);
               setAssistantText(text);
             };
 
             utterance.onend = function () {
-              console.log("Speech ended");
               setIsSpeaking(false);
             };
 
@@ -125,6 +123,7 @@ function HomeBody() {
 
     recognition.onend = () => {
       setIsListening(false);
+      speakText(transcript);
     };
 
     recognition.onerror = (event) => {
@@ -167,11 +166,7 @@ function HomeBody() {
       recognition.onerror = null;
       recognition.onresult = null;
     };
-  }, []);
-
-  useEffect(() => {
-    localStorage.removeItem("welcomeMessageSpoken");
-  }, []);
+  }, [transcript]);
 
   return (
     <div className="body section-gap">
