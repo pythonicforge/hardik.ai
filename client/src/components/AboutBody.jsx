@@ -1,12 +1,19 @@
 import "../styles/AboutBody.scss";
 import stars from "../images/stars.svg";
 import profile from "../images/profile.png";
+import PlaceholderImage from "../images/placeholder.png";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 function AboutBody() {
   return (
     <div className="about-container section-gap">
       <div className="about-star-container">
-        <img src={stars} alt="" />
+        <LazyLoadImage
+          src={stars}
+          effect="blur"
+          placeholderSrc={PlaceholderImage}
+        />
       </div>
       <div className="about-content-container">
         <div className="left-content-container">
@@ -15,7 +22,11 @@ function AboutBody() {
           </div>
           <div className="image-container">
             <div className="image-content-container">
-              <img src={profile} alt="" />
+              <LazyLoadImage
+                src={profile}
+                effect="blur"
+                placeholderSrc={PlaceholderImage}
+              />
               <p>41.3kb</p>
             </div>
           </div>

@@ -30,13 +30,13 @@ function Navbar() {
 
         <div className="navbar-links">
           <Link to="/about" className={isActive("/about") ? "active" : ""}>
-            About
+            About<span className="navbar-links-index">00</span>
           </Link>
           <Link
             to="/projects"
             className={isActive("/projects") ? "active" : ""}
           >
-            Projects
+            Projects<span className="navbar-links-index">01</span>
           </Link>
         </div>
 

@@ -6,6 +6,9 @@ import hardik_ai from "../images/hardik-ai.svg";
 import melodi_cli from "../images/melodi-cli.svg";
 import pks from "../images/peripheral-killing-system.svg";
 import pixelated_computer from "../images/pixelated-computer.svg";
+import PlaceholderImage from "../images/placeholder.png";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const projects = [
   {
@@ -38,13 +41,21 @@ function ProjectBody() {
   return (
     <div className="project-body-container section-gap">
       <div className="project-star-container">
-        <img src={stars} alt="Stars" />
+        <LazyLoadImage
+          src={stars}
+          effect="blur"
+          placeholderSrc={PlaceholderImage}
+        />
       </div>
 
       <div className="project-image-content">
         <p className="project-filename">$ls project</p>
         <div className="project-computer-container">
-          <img src={pixelated_computer} alt="Pixelated Computer" />
+        <LazyLoadImage
+          src={pixelated_computer}
+          effect="blur"
+          placeholderSrc={PlaceholderImage}
+        />
         </div>
         <p className="project-filesize">24.1kB</p>
       </div>
