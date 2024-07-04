@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import "../styles/Preloader.scss"; // Assuming you want to keep styles separate
+import { useEffect } from "react";
+import "../styles/Preloader.scss";
 
 const Preloader = ({ onLoadComplete }) => {
   useEffect(() => {
@@ -71,7 +71,6 @@ const Preloader = ({ onLoadComplete }) => {
       pre.innerHTML = outputArray.join("");
     }, 50);
 
-    // ASCII progress bar
     function AsciiProgress(parentId, options) {
       this.options = Object.assign(
         {

@@ -1,4 +1,3 @@
-import React from "react";
 import "../styles/Footer.scss";
 import QRCODE from "../images/qrcode.png";
 

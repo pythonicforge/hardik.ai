@@ -1,8 +1,5 @@
-// components/NotFound.jsx
-
-import React from "react";
+import "../styles/NotFound.scss";
 import { Link } from "react-router-dom";
-import "../styles/NotFound.scss"; // Create or import your NotFound component styling here
 
 const NotFound = () => {
   return (

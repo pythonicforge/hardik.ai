@@ -2,14 +2,14 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: var(--text-tertiary);
   padding: 10px 20px;
   border-radius: 5px;
   white-space: normal;
   font-size: 14px;
   opacity: 0;
   top: 50%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: var(--lightest-black);
   transition: opacity 0.5s ease-in-out, top 0.5s ease-in-out;
   font-family: "Fira Mono", monospace;
   pointer-events: none;

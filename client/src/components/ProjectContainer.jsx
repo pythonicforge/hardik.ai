@@ -1,9 +1,8 @@
-import React from "react";
-import "../styles/ProjectContainer.scss";
-import github from "../images/github.svg";
-import { Link } from "react-router-dom";
 import "./ScrollToTop";
 import ScrollToTop from "./ScrollToTop";
+import { Link } from "react-router-dom";
+import "../styles/ProjectContainer.scss";
+import github from "../images/github.svg";
 
 function ProjectContainer({ title, description, link, skills }) {
   return (

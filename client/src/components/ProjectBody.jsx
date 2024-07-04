@@ -1,11 +1,11 @@
+import Project from "./Project";
 import "../styles/ProjectBody.scss";
 import stars from "../images/stars.svg";
-import pixelated_computer from "../images/pixelated-computer.svg";
-import hardik_ai from "../images/hardik-ai.svg";
-import pks from "../images/peripheral-killing-system.svg";
 import devcraft from "../images/devcraft.svg";
+import hardik_ai from "../images/hardik-ai.svg";
 import melodi_cli from "../images/melodi-cli.svg";
-import Project from "./Project";
+import pks from "../images/peripheral-killing-system.svg";
+import pixelated_computer from "../images/pixelated-computer.svg";
 
 const projects = [
   {

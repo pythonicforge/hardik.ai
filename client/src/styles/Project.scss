@@ -4,7 +4,7 @@ a {
 }
 
 .project-grid-item {
-  border: 1px solid black;
+  border: 1px solid var(--text-primary);
 
   .project-name {
     padding: 25px 35px;

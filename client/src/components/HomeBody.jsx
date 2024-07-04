@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useCallback } from "react";
-import "../styles/Body.scss";
-import vKey from "../images/v-key.svg";
-import mouse from "../images/left-mouse.svg";
 import Blob from "./Blob";
 import Popup from "./Popup";
+import "../styles/Body.scss";
 import Subtitle from "./Subtitle";
+import vKey from "../images/v-key.svg";
+import mouse from "../images/left-mouse.svg";
+import { useEffect, useState, useCallback } from "react";
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -124,39 +124,42 @@ function HomeBody() {
     };
   }, [transcript]);
 
-  const speakText = useCallback((text) => {
-    if (!text) {
-      setPopupMessage("No transcript available to speak.");
-      return;
-    }
-    if (voices.length === 0) {
-      setPopupMessage("No voices available.");
-      return;
-    }
+  const speakText = useCallback(
+    (text) => {
+      if (!text) {
+        setPopupMessage("No transcript available to speak.");
+        return;
+      }
+      if (voices.length === 0) {
+        setPopupMessage("No voices available.");
+        return;
+      }
 
-    const utterance = new SpeechSynthesisUtterance(text);
-    const selectedVoice = voices.find(
-      (voice) =>
-        voice.name ===
-        "Microsoft Emma Online (Natural) - English (United States)"
-    );
-    const fallbackVoice = voices.find(
-      (voice) => voice.name === "Microsoft Mark - English (United States)"
-    );
+      const utterance = new SpeechSynthesisUtterance(text);
+      const selectedVoice = voices.find(
+        (voice) =>
+          voice.name ===
+          "Microsoft Emma Online (Natural) - English (United States)"
+      );
+      const fallbackVoice = voices.find(
+        (voice) => voice.name === "Microsoft Mark - English (United States)"
+      );
 
-    utterance.voice = selectedVoice || fallbackVoice || voices[0];
+      utterance.voice = selectedVoice || fallbackVoice || voices[0];
 
-    utterance.onstart = () => {
-      setIsSpeaking(true);
-      setAssistantText(text);
-    };
+      utterance.onstart = () => {
+        setIsSpeaking(true);
+        setAssistantText(text);
+      };
 
-    utterance.onend = () => {
-      setIsSpeaking(false);
-    };
+      utterance.onend = () => {
+        setIsSpeaking(false);
+      };
 
-    window.speechSynthesis.speak(utterance);
-  }, [voices]);
+      window.speechSynthesis.speak(utterance);
+    },
+    [voices]
+  );
 
   return (
     <div className="body section-gap">

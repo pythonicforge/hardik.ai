@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import "../styles/Popup.scss";
+import { useState, useEffect } from "react";
 
 function Popup({ type, popupText }) {
   const [showPopup, setShowPopup] = useState(false);

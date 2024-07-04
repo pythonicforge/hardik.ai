@@ -83,7 +83,7 @@
     overflow: hidden;
     top: 40px;
     right: 0;
-    background: white;
+    background: var(--text-tertiary);
     width: 100%;
     transition: all 0.3s ease-in;
     opacity: 0;
@@ -138,9 +138,6 @@
       }
     }
   }
-}
-
-@media screen and (max-width: 768px) {
 }
 
 @media screen and (min-width: 551px) {

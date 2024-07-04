@@ -1,7 +1,6 @@
-import React from "react";
+import "../styles/AboutBody.scss";
 import stars from "../images/stars.svg";
 import profile from "../images/profile.png";
-import "../styles/AboutBody.scss";
 
 function AboutBody() {
   return (

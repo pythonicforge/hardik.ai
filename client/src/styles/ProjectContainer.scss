@@ -19,13 +19,13 @@
 
       .project-description {
         font-size: 1rem;
-        color: #1e1e1e;
+        color: var(--black-light);
         margin-bottom: 1rem;
       }
 
       .skills-container {
         font-size: 0.9rem;
-        color: #444;
+        color: var(--light-grey);
 
         p {
           font-weight: bold;
@@ -40,7 +40,7 @@
           justify-content: center;
 
           li {
-            background-color: #e0e0e0;
+            background-color: var(--off-white);
             border-radius: 5px;
             padding: 0.5rem;
             margin: 0.5rem;
@@ -60,7 +60,7 @@
       .video-container {
         width: 100%;
         max-width: 500px;
-        border: 1px solid #1e1e1e7c;
+        border: 1px solid var(--lightest-black);
         padding: 1rem;
         text-align: right;
 
@@ -71,7 +71,7 @@
 
         .video-size {
           font-size: 0.8rem;
-          color: #1e1e1e;
+          color: var(--black-light);
           font-family: "Fira Mono", monospace;
         }
       }
@@ -81,14 +81,14 @@
         align-items: center;
         gap: 0.5rem;
         text-decoration: none;
-        border: 1px solid #ddd;
+        border: 1px solid var(--shadow);
         padding: 0.5rem 1rem;
-        background-color: #fff;
+        background-color: var(--light-tertiary);
         border-radius: 5px;
         transition: background-color 0.3s;
 
         &:hover {
-          background-color: #f0f0f0;
+          background-color: var(--hover-white);
         }
 
         .github-icon {
@@ -100,7 +100,7 @@
           margin: 0;
           font-family: "Fira Mono", monospace;
           font-size: 1rem;
-          color: #1e1e1e;
+          color: var(--black-light);
         }
       }
     }

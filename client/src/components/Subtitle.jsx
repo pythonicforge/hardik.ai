@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
 import "../styles/Subtitle.scss";
+import { useState, useEffect } from "react";
 
 function Subtitle({ subtitle, isSpeaking }) {
   const [showPopup, setShowPopup] = useState(false);
