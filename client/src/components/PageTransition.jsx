@@ -7,16 +7,20 @@ const PageTransition = ({ children }) => {
 
   useEffect(() => {
     const handlePageTransition = () => {
-      gsap.set(".main-content", { opacity: 0 });
+      const mainContent = ".main-content"; // Replace with your target selector
+      gsap.set(mainContent, { opacity: 0 });
 
-      gsap.to(".main-content", {
-        opacity: 1,
-        duration: 1,
-        ease: "power3.out",
-      });
+      const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
+      tl.to(mainContent, { opacity: 1 });
+
+      return tl; // Return timeline to allow cleanup
     };
 
-    handlePageTransition();
+    const animation = handlePageTransition();
+
+    return () => {
+      animation.kill(); // Clean up animation on unmount or route change
+    };
   }, [location.pathname]);
 
   return <>{children}</>;
