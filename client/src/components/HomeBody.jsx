@@ -1,10 +1,10 @@
+import React, { useEffect, useState, useCallback } from "react";
 import Blob from "./Blob";
 import Popup from "./Popup";
-import "../styles/Body.scss";
 import Subtitle from "./Subtitle";
 import vKey from "../images/v-key.svg";
 import mouse from "../images/left-mouse.svg";
-import { useEffect, useState, useCallback } from "react";
+import "../styles/Body.scss";
 
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -17,6 +17,30 @@ function HomeBody() {
   const [transcript, setTranscript] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voices, setVoices] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+
+  const getResponse = async (query) => {
+    try {
+      setIsFetching(true);
+      const response = await fetch(
+        "https://echo-server-ud1f.onrender.com/query",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ query: query }),
+        }
+      );
+      const data = await response.json();
+      setIsFetching(false);
+      return data.response;
+    } catch (error) {
+      setIsFetching(false);
+      setPopupMessage("Error fetching response: " + error.message);
+      throw error;
+    }
+  };
 
   const toggleListening = useCallback(() => {
     try {
@@ -79,7 +103,14 @@ function HomeBody() {
 
     recognition.onend = () => {
       setIsListening(false);
-      speakText(transcript);
+      getResponse(transcript)
+        .then((response) => {
+          speakText(response);
+        })
+        .catch((error) => {
+          console.error("Error fetching response:", error);
+          setPopupMessage("Error fetching response. Please try again.");
+        });
     };
 
     recognition.onerror = (event) => {
@@ -163,13 +194,21 @@ function HomeBody() {
 
   return (
     <div className="body section-gap">
+      <Popup
+        popupText="ECHO might produce wrong outputs and maybe very slow. It is still under development!"
+        type="warning"
+      />
       {popupMessage && <Popup popupText={popupMessage} type="error" />}
       <div className="body-file-container inter-container-space">
         <p>[RUNNING ECHO.PY]</p>
       </div>
       <div className="body-blob-container inter-container-space">
         <Blob />
-        <Subtitle subtitle={assistantText} isSpeaking={isSpeaking} />
+        {isFetching ? (
+          <Subtitle subtitle="Processing..." isSpeaking={isSpeaking} />
+        ) : (
+          <Subtitle subtitle={assistantText} isSpeaking={isSpeaking} />
+        )}
       </div>
       <div className="body-stats-container">
         <p>[Currently in Kolkata]</p>
