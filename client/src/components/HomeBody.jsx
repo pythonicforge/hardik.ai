@@ -17,11 +17,10 @@ function HomeBody() {
   const [transcript, setTranscript] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voices, setVoices] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
 
   const getResponse = async (query) => {
     try {
-      setIsFetching(true);
+      setAssistantText("Processing..");
       const response = await fetch(
         "https://echo-server-ud1f.onrender.com/query",
         {
@@ -33,10 +32,9 @@ function HomeBody() {
         }
       );
       const data = await response.json();
-      setIsFetching(false);
+      setAssistantText("")
       return data.response;
     } catch (error) {
-      setIsFetching(false);
       setPopupMessage("Error fetching response: " + error.message);
       throw error;
     }
@@ -204,11 +202,7 @@ function HomeBody() {
       </div>
       <div className="body-blob-container inter-container-space">
         <Blob />
-        {isFetching ? (
-          <Subtitle subtitle="Processing..." isSpeaking={isSpeaking} />
-        ) : (
-          <Subtitle subtitle={assistantText} isSpeaking={isSpeaking} />
-        )}
+        <Subtitle subtitle={assistantText} isSpeaking={isSpeaking} />
       </div>
       <div className="body-stats-container">
         <p>[Currently in Kolkata]</p>
