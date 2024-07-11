@@ -4,13 +4,13 @@ import "./styles/App.scss";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import HomeBody from "./components/HomeBody";
+import NotFound from "./components/NotFound";
 import AboutBody from "./components/AboutBody";
+import Preloader from "./components/Preloader";
+import MobileBody from "./components/MobileBody";
 import ProjectBody from "./components/ProjectBody";
 import PageTransition from "./components/PageTransition";
 import ProjectContainer from "./components/ProjectContainer";
-import NotFound from "./components/NotFound";
-import Preloader from "./components/Preloader";
-import MobileBody from "./components/MobileBody";
 
 function App() {
   const [loading, setLoading] = useState(true);

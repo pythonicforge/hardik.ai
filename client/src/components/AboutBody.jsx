@@ -1,11 +1,16 @@
 import "../styles/AboutBody.scss";
 import stars from "../images/stars.svg";
 import profile from "../images/profile.png";
+import { Link } from "react-router-dom";
 import PlaceholderImage from "../images/placeholder.png";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import Pdf from './Resume.pdf';
 
 function AboutBody() {
+  const onResumeClick = () => {
+    window.open(Pdf);
+  };
   return (
     <div className="about-container section-gap">
       <div className="about-star-container">
@@ -45,25 +50,6 @@ function AboutBody() {
             </p>
             <p className="two-tabs">self.name = "Hardik Jaiswal"</p>
             <p className="one-tab one-gap">
-              <span>def description</span>(self):
-            </p>
-            <p className="two-tabs">
-              <span className="highlight">return</span> """
-              <span className="description">
-                hardik codes software, usually sequentially writing them to
-                console. He also designs and builds things, some of which
-                include apps and websites.
-              </span>
-              <br />
-              <br />
-              <span className="description one-gap">
-                hardik pairs quite nicely with other things that include:
-                [insert current reading book], programming languages, vs-code,
-                coffee, cricket, travel, gaming and infitinum...
-              </span>
-              <span className="description">"""</span>
-            </p>
-            <p className="one-tab one-gap">
               <span>def title</span>(self):
             </p>
             <p className="two-tabs">
@@ -71,25 +57,61 @@ function AboutBody() {
               developer”
             </p>
             <p className="one-tab one-gap">
+              <span>def description</span>(self):
+            </p>
+            <p className="two-tabs">
+              <span className="highlight">return</span> """
+              <span className="description">
+              Hardik Jaiswal is a passionate software
+                 developer who loves coding and creating
+                 innovative solutions. He excels in
+                 designing and building applications and
+                 websites with a keen eye for detail.
+              </span>
+              <br />
+              <br />
+              <span className="description one-gap">
+              When not coding, Hardik enjoys:
+              <br/>
+                 - Reading (currently: [insert current
+                   reading book])
+                   <br/>
+                 - Sipping on coffee
+                 <br/>
+                 - Watching cricket
+                 <br/>
+                 - Traveling to new places
+                 <br/>
+                 - Gaming for relaxation
+              </span>
+              <span className="description">"""</span>
+            </p>
+            <p className="one-tab one-gap">
               <span>def skills</span>(self):
             </p>
             <p className="two-tabs">
               <span className="highlight">return</span> [“python”, “html”,
-              “css”, “java”, “javascript”, "reactjs", "flask", "firebase"]
+              “css”, “javascript”, "java”, "reactjs", "flask", "SASS"]
             </p>
             <p className="one-tab one-gap">
               <span>def tools</span>(self):
             </p>
             <p className="two-tabs">
               <span className="highlight">return</span> [“vscode”, “linux”,
-              “git”, "figma"]
+              “git”, "github", "figma", "firebase", "vercel", "netlify"]
             </p>
             <p className="one-tab one-gap">
-              <span>def usage</span>(self):
+              <span>def interests</span>(self):
             </p>
             <p className="two-tabs">
               <span className="highlight">return</span> [“ai-ml”, “robotics”,
               “algo-trading”]
+            </p>
+            <p className="one-tab one-gap">
+              <span>def resume</span>(self):
+            </p>
+            <p className="two-tabs">
+              <span className="highlight">return</span> <Link onClick={onResumeClick}>resume.pdf</Link>
             </p>
           </div>
         </div>
