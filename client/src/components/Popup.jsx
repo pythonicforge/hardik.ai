@@ -12,7 +12,10 @@ function Popup({ type, popupText }) {
     if (type) {
       showTimeout = setTimeout(() => {
         setShowPopup(true);
-        const newClass = type === "error" ? "error-visible" : "warning-visible";
+        let newClass = type === "error" ? "error-visible" : "warning-visible";
+        if(type === "info"){
+          newClass = "info-visible";
+        }
         setPopupClass(newClass);
       }, 1000);
 
@@ -37,6 +40,7 @@ function Popup({ type, popupText }) {
       <span>
         {type === "error" && "Error: "}
         {type === "warning" && "Warning: "}
+        {type === "info" && "Info: "}
         {popupText}
       </span>
     </div>

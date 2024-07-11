@@ -13,10 +13,28 @@ const recognition = new SpeechRecognition();
 function HomeBody() {
   const [isListening, setIsListening] = useState(false);
   const [popupMessage, setPopupMessage] = useState(null);
+  const [infoMessage, setInfoMessage] = useState(null);
   const [assistantText, setAssistantText] = useState("");
   const [transcript, setTranscript] = useState("");
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voices, setVoices] = useState([]);
+  const [serverOnline, setServerOnline] = useState(false);
+
+  const checkServerStatus = useCallback(async () => {
+    try {
+      const response = await fetch("https://echo-server-ud1f.onrender.com/keep-alive");
+      if (response.ok) {
+        setServerOnline(true);
+        setInfoMessage("Server is online. ECHO enabled.");
+      } else {
+        setServerOnline(false);
+        setInfoMessage("Server is offline. Waiting for server to start...");
+      }
+    } catch (error) {
+      setServerOnline(false);
+      setPopupMessage("Error checking server status.");
+    }
+  }, []);
 
   const getResponse = async (query) => {
     try {
@@ -32,7 +50,7 @@ function HomeBody() {
         }
       );
       const data = await response.json();
-      setAssistantText("")
+      setAssistantText("");
       return data.response;
     } catch (error) {
       setPopupMessage("Error fetching response: " + error.message);
@@ -86,13 +104,19 @@ function HomeBody() {
   }, []);
 
   useEffect(() => {
-    if (voices.length > 0 && !sessionStorage.getItem("welcomeMessageSpoken")) {
+    checkServerStatus();
+    const interval = setInterval(checkServerStatus, 5000); // Check server status every 5 seconds
+    return () => clearInterval(interval);
+  }, [checkServerStatus]);
+
+  useEffect(() => {
+    if (voices.length > 0 && serverOnline && !sessionStorage.getItem("welcomeMessageSpoken")) {
       sessionStorage.setItem("welcomeMessageSpoken", "true");
       speakText(
         "Welcome to Hardik's portfolio! Feel free to ask any questions about Hardik."
       );
     }
-  }, [voices]);
+  }, [voices, serverOnline]);
 
   useEffect(() => {
     recognition.onspeechend = () => {
@@ -101,14 +125,18 @@ function HomeBody() {
 
     recognition.onend = () => {
       setIsListening(false);
-      getResponse(transcript)
-        .then((response) => {
-          speakText(response);
-        })
-        .catch((error) => {
-          console.error("Error fetching response:", error);
-          setPopupMessage("Error fetching response. Please try again.");
-        });
+      if (serverOnline) {
+        getResponse(transcript)
+          .then((response) => {
+            speakText(response);
+          })
+          .catch((error) => {
+            console.error("Error fetching response:", error);
+            setPopupMessage("Error fetching response. Please try again.");
+          });
+      } else {
+        setPopupMessage("Server is offline. Cannot process request.");
+      }
     };
 
     recognition.onerror = (event) => {
@@ -151,7 +179,7 @@ function HomeBody() {
       recognition.onerror = null;
       recognition.onresult = null;
     };
-  }, [transcript]);
+  }, [transcript, serverOnline]);
 
   const speakText = useCallback(
     (text) => {
@@ -192,11 +220,8 @@ function HomeBody() {
 
   return (
     <div className="body section-gap">
-      <Popup
-        popupText="ECHO might produce wrong outputs and maybe very slow. It is still under development!"
-        type="warning"
-      />
       {popupMessage && <Popup popupText={popupMessage} type="error" />}
+      {infoMessage && <Popup popupText={infoMessage} type="info" />}
       <div className="body-file-container inter-container-space">
         <p>[RUNNING ECHO.PY]</p>
       </div>
@@ -208,17 +233,17 @@ function HomeBody() {
         <p>[Currently in Kolkata]</p>
         <p>43.7kB</p>
       </div>
-      <div
-        className="body-instructions-container"
-        onClick={toggleListening}
-        style={{ display: isListening ? "none" : "flex" }}
-      >
-        <p className="right-gap">Toggle</p>
-        <img src={vKey} alt="Keyboard Key" />
-        <p className="left-gap right-gap">or click</p>
-        <img src={mouse} alt="Mouse Click" />
-        <p className="left-gap">to interact</p>
-      </div>
+        <div
+          className="body-instructions-container"
+          onClick={toggleListening}
+          style={{ display: isListening ? "none" : "flex" }}
+        >
+          <p className="right-gap">Toggle</p>
+          <img src={vKey} alt="Keyboard Key" />
+          <p className="left-gap right-gap">or click</p>
+          <img src={mouse} alt="Mouse Click" />
+          <p className="left-gap">to interact</p>
+        </div>
       <div
         id="body-listening-indicator"
         className={isListening ? "" : "indicator-hidden"}

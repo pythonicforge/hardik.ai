@@ -26,3 +26,9 @@
   background-color: var(--warning-bg);
   color: var(--text-primary);
 }
+
+.popup-container.info-visible {
+  opacity: 1;
+  background-color: var(--black-light);
+  color: var(--text-tertiary);
+}
