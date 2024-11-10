@@ -19,10 +19,14 @@ function HomeBody() {
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [voices, setVoices] = useState([]);
   const [serverOnline, setServerOnline] = useState(false);
+  const [browserInfoMessage, setBrowserInfoMessage] = useState(
+    "This website works best in Google Chrome and Microsoft Edge."
+  );
+
 
   const checkServerStatus = useCallback(async () => {
     try {
-      const response = await fetch("https://echo-server-ud1f.onrender.com/keep-alive");
+      const response = await fetch("https://echo-rust-six.vercel.app/ask?query=Who is Hardik");
       if (response.ok) {
         setServerOnline(true);
         setInfoMessage("Server is online. ECHO enabled.");
@@ -40,18 +44,12 @@ function HomeBody() {
     try {
       setAssistantText("Processing..");
       const response = await fetch(
-        "https://echo-server-ud1f.onrender.com/query",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ query: query }),
-        }
+        "https://echo-rust-six.vercel.app/ask?query=" + query
       );
       const data = await response.json();
-      setAssistantText("");
-      return data.response;
+      console.log(data.answer)
+      // setAssistantText("");
+      return data.answer;
     } catch (error) {
       setPopupMessage("Error fetching response: " + error.message);
       throw error;
@@ -222,6 +220,9 @@ function HomeBody() {
     <div className="body section-gap">
       {popupMessage && <Popup popupText={popupMessage} type="error" />}
       {infoMessage && <Popup popupText={infoMessage} type="info" />}
+      {browserInfoMessage && (
+        <Popup popupText={browserInfoMessage} type="info" />
+      )}
       <div className="body-file-container inter-container-space">
         <p>[RUNNING ECHO.PY]</p>
       </div>
@@ -233,17 +234,17 @@ function HomeBody() {
         <p>[Currently in Kolkata]</p>
         <p>43.7kB</p>
       </div>
-        <div
-          className="body-instructions-container"
-          onClick={toggleListening}
-          style={{ display: isListening ? "none" : "flex" }}
-        >
-          <p className="right-gap">Toggle</p>
-          <img src={vKey} alt="Keyboard Key" />
-          <p className="left-gap right-gap">or click</p>
-          <img src={mouse} alt="Mouse Click" />
-          <p className="left-gap">to interact</p>
-        </div>
+      <div
+        className="body-instructions-container"
+        onClick={toggleListening}
+        style={{ display: isListening ? "none" : "flex" }}
+      >
+        <p className="right-gap">Toggle</p>
+        <img src={vKey} alt="Keyboard Key" />
+        <p className="left-gap right-gap">or click</p>
+        <img src={mouse} alt="Mouse Click" />
+        <p className="left-gap">to interact</p>
+      </div>
       <div
         id="body-listening-indicator"
         className={isListening ? "" : "indicator-hidden"}
