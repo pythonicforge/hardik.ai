@@ -47,6 +47,13 @@ function Footer() {
             >
               Mail
             </a>
+            <a
+              href="https://medium.com/@pythonicforge"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Blogs
+            </a>
           </div>
           <div className="footer-copyright">
             <p>
