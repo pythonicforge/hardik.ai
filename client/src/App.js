@@ -122,6 +122,17 @@ function App() {
                       }
                     />
                     <Route
+                      path="/openastronomy"
+                      element={
+                        <ProjectContainer
+                          title="OpenAstronomy"
+                          description="OpenAstronomy is a Python library for accessing data from the Open Astronomy Data Portal (OADP). It provides a simple and intuitive interface for querying and downloading data from various astronomical instruments, including the Hubble Space Telescope, James Webb Space Telescope, and the James Webb Space Telescope. The library supports both synchronous and asynchronous data retrieval, and offers a flexible API for customizing queries. The OADP provides access to a vast collection of astronomical data, including images, spectra, and catalogs, making it a valuable resource for researchers and developers working in the fields of astronomy, astrophysics, and space science."
+                          link="https://github.com/OpenAstronomy/openastronomy.github.io"
+                          skills={["Python", "C++", "C"]}
+                        />
+                      }
+                    />
+                    <Route
                       path="/blogs"
                       element={<BlogsBody />}
                     />

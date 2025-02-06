@@ -4,8 +4,9 @@ import stars from "../images/stars.svg";
 import devcraft from "../images/devcraft.svg";
 import hardik_ai from "../images/hardik-ai.svg";
 import melodi_cli from "../images/melodi-cli.svg";
-import sunpy from '../images/sunpy.png'
+import sunpy from '../images/sunpy.png';
 import pks from "../images/peripheral-killing-system.svg";
+import openastronomy from "../images/openastronomy2.png";
 import pixelated_computer from "../images/pixelated-computer.svg";
 import PlaceholderImage from "../images/placeholder.png";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -41,6 +42,12 @@ const projects = [
     image: sunpy,
     project_id: "04",
     project_link: "sunpy",
+  },
+  {
+    project_name: "openastronomy",
+    image: openastronomy,
+    project_id: "05",
+    project_link: "openastronomy",
   },
 ];
 
