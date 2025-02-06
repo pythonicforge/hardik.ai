@@ -22,6 +22,11 @@ a {
     img {
       width: 300px;
       height: auto;
+      
+    }
+
+    .project-image{
+      border: 1px solid var(--text-primary); 
     }
   }
 

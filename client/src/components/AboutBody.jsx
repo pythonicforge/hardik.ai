@@ -5,12 +5,17 @@ import { Link } from "react-router-dom";
 import PlaceholderImage from "../images/placeholder.png";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Pdf from './Resume.pdf';
+import Pdf from "./Resume.pdf";
 
 function AboutBody() {
   const onResumeClick = () => {
     window.open(Pdf);
   };
+
+  const experience = [
+    { company: 'DevClub', designation: 'President of Backend Vertical', time: '2024 - present' },
+    { company: 'Upwork', designation: 'Frelance Software Developer', time: '2022 - 2024' }
+];
   return (
     <div className="about-container section-gap">
       <div className="about-star-container">
@@ -111,10 +116,26 @@ function AboutBody() {
               <span>def resume</span>(self):
             </p>
             <p className="two-tabs">
-              <span className="highlight">return</span> <Link onClick={onResumeClick}>resume.pdf</Link>
+              <span className="highlight">return</span> <Link className="link-resume" onClick={onResumeClick}>resume.pdf</Link>
             </p>
           </div>
         </div>
+      </div>
+      <div className="about-experience-container">
+        <div className="experience-title-container">
+        <p className="experience-title">work.</p>
+        </div>
+        {experience.map((job, index) => (
+                    <div key={index} className="job-item">
+                      <div className="company-desc">
+                        <p className="company">{job.company}</p>
+                        <p className="designation">{job.designation}</p>
+                      </div>
+                      <div className="company-time">
+                        <p className="time">{job.time}</p>
+                      </div>
+                    </div>
+        ))}
       </div>
     </div>
   );

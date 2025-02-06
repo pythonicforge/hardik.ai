@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import HomeBody from "./components/HomeBody";
 import NotFound from "./components/NotFound";
 import AboutBody from "./components/AboutBody";
+import BlogsBody from "./components/BlogsBody";
 import Preloader from "./components/Preloader";
 import MobileBody from "./components/MobileBody";
 import ProjectBody from "./components/ProjectBody";
@@ -108,6 +109,21 @@ function App() {
                           skills={["ReactJS", "SCSS", "HTML", "Python"]}
                         />
                       }
+                    />
+                    <Route
+                      path="/sunpy"
+                      element={
+                        <ProjectContainer
+                          title="SunPy"
+                          description="Investigated and resolved multiple issues in SunPy, including a data format inconsistency in VSO-backed Fido search, where long-duration queries incorrectly returned TAR archives instead of ZIP files. Identified root causes, collaborated with maintainers, and initiated discussions with VSO for a resolution. Additionally, fixed the SRSClient error to improve NOAA SRS data retrieval and ensure accurate solar data access. Worked on debugging, reproducing errors, and enhancing SunPy’s interaction with both VSO and NOAA services."
+                          link="https://github.com/sunpy/sunpy"
+                          skills={["Python", "C++", "C"]}
+                        />
+                      }
+                    />
+                    <Route
+                      path="/blogs"
+                      element={<BlogsBody />}
                     />
                     <Route path="*" element={<NotFound />} />
                   </>

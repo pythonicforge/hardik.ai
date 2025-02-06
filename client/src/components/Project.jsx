@@ -11,6 +11,7 @@ function Project({ project_name, image, project_id, project_link }) {
         <p className="project-name">{project_name}</p>
         <div className="project-banner-image">
           <LazyLoadImage
+            className={project_link === "sunpy" ? "project-image" : ""}
             src={image}
             effect="blur"
             placeholderSrc={PlaceholderImage}

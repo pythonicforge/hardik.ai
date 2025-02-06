@@ -1,0 +1,19 @@
+.blogs-inner-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid var(--text-primary);
+    height: 20vh;
+    padding: 1rem;
+    .blog-data{
+        display: flex;
+        gap: 2rem;
+        font-family: "Fira Mono", monospace;
+    
+        .blog-title{
+            text-decoration: underline;
+        }
+    }
+}
+
+

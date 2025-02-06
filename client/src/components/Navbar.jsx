@@ -38,6 +38,12 @@ function Navbar() {
           >
             Projects<span className="navbar-links-index">01</span>
           </Link>
+          <Link
+            to="/blogs"
+            className={isActive("/blogs") ? "active" : ""}
+          >
+            Blogs<span className="navbar-links-index">02</span>
+          </Link>
         </div>
 
         <div
@@ -51,7 +57,7 @@ function Navbar() {
       </div>
 
       <div className={`navbar-mobile-menu ${menuOpen ? "open" : ""}`}>
-        {["Home", "About", "Projects"].map((text, index) => (
+        {["Home", "About", "Projects", "Blogs"].map((text, index) => (
           <div
             key={index}
             className={`option option-${index + 1} ${

@@ -4,6 +4,7 @@ import stars from "../images/stars.svg";
 import devcraft from "../images/devcraft.svg";
 import hardik_ai from "../images/hardik-ai.svg";
 import melodi_cli from "../images/melodi-cli.svg";
+import sunpy from '../images/sunpy.png'
 import pks from "../images/peripheral-killing-system.svg";
 import pixelated_computer from "../images/pixelated-computer.svg";
 import PlaceholderImage from "../images/placeholder.png";
@@ -34,6 +35,12 @@ const projects = [
     image: hardik_ai,
     project_id: "03",
     project_link: "hardik-ai",
+  },
+  {
+    project_name: "sunpy",
+    image: sunpy,
+    project_id: "04",
+    project_link: "sunpy",
   },
 ];
 

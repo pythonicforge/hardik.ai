@@ -75,6 +75,10 @@
 
 .text-container > .two-tabs {
   padding-left: 4rem;
+
+  .link-resume{
+    text-decoration: underline;
+  }
 }
 
 .text-container > .one-gap {
@@ -91,6 +95,50 @@
 
 .text-container p .highlight {
   color: var(--text-secondary);
+}
+
+.about-experience-container {
+  margin: 5rem 0;
+  padding: 1rem 0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+
+  .experience-title-container {
+    margin-bottom: 2rem;
+  }
+
+  .experience-title {
+    font-size: 75px;
+    font-weight: 900;
+  }
+
+  .job-item{
+    border-bottom: 1px solid var(--text-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 10px 15px;
+
+    .company-desc{
+      font-weight: lighter;
+
+      .company{
+        font-size: 22px;
+        font-weight: 300;
+        padding: 0 0 17px 0;
+      }
+
+      .designation{
+        font-size: 12.5px;
+        font-weight: 100;
+      }
+    }
+
+    .time{
+      font-size: 13.5px;
+      font-family: "Fira Mono", monospace;
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
