@@ -117,7 +117,7 @@ function App() {
                           title="SunPy"
                           description="Investigated and resolved multiple issues in SunPy, including a data format inconsistency in VSO-backed Fido search, where long-duration queries incorrectly returned TAR archives instead of ZIP files. Identified root causes, collaborated with maintainers, and initiated discussions with VSO for a resolution. Additionally, fixed the SRSClient error to improve NOAA SRS data retrieval and ensure accurate solar data access. Worked on debugging, reproducing errors, and enhancing SunPy’s interaction with both VSO and NOAA services."
                           link="https://github.com/sunpy/sunpy"
-                          skills={["Python", "C++", "C"]}
+                          skills={["Python", "C++", "C", "GSoC"]}
                         />
                       }
                     />
@@ -126,9 +126,9 @@ function App() {
                       element={
                         <ProjectContainer
                           title="OpenAstronomy"
-                          description="OpenAstronomy is a Python library for accessing data from the Open Astronomy Data Portal (OADP). It provides a simple and intuitive interface for querying and downloading data from various astronomical instruments, including the Hubble Space Telescope, James Webb Space Telescope, and the James Webb Space Telescope. The library supports both synchronous and asynchronous data retrieval, and offers a flexible API for customizing queries. The OADP provides access to a vast collection of astronomical data, including images, spectra, and catalogs, making it a valuable resource for researchers and developers working in the fields of astronomy, astrophysics, and space science."
+                          description="A contribution was made to OpenAstronomy’s website by improving the footer section, enhancing its design and functionality. The changes focused on creating a more polished and user-friendly experience while maintaining consistency with the overall website layout. This update refined the visual appeal and usability of the site, ensuring better navigation and accessibility for users."
                           link="https://github.com/OpenAstronomy/openastronomy.github.io"
-                          skills={["Python", "C++", "C"]}
+                          skills={["Python", "C++", "C", "GSoC"]}
                         />
                       }
                     />

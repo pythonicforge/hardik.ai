@@ -6,7 +6,7 @@ import hardik_ai from "../images/hardik-ai.svg";
 import melodi_cli from "../images/melodi-cli.svg";
 import sunpy from '../images/sunpy.png';
 import pks from "../images/peripheral-killing-system.svg";
-import openastronomy from "../images/openastronomy2.png";
+import openastronomy from "../images/openastronomy.png";
 import pixelated_computer from "../images/pixelated-computer.svg";
 import PlaceholderImage from "../images/placeholder.png";
 import "react-lazy-load-image-component/src/effects/blur.css";
