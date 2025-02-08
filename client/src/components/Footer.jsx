@@ -41,11 +41,11 @@ function Footer() {
               GitHub
             </a>
             <a
-              href="mailto:pythonicforge@gmail.com"
+              href="https://linktr.ee/pseudopythonic"
               target="_blank"
               rel="noreferrer"
             >
-              Mail
+              LinkTree
             </a>
             <a
               href="https://medium.com/@pythonicforge"
